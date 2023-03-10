@@ -1,0 +1,35 @@
+input[type="radio"]{
+    display: none;
+}
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+}
+.meme-heading{
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.heading-text{
+    display: inline-block;
+}
+.meme-img{
+    display: block;
+    height: 0;
+    /*aspect-ratio: 1 / 1;*/
+    margin: 0 auto;
+    transition: height .5s;
+}
+.heading-icon{
+    display: inline-block;
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-image: url("./assets/add-icon.svg");
+    background-position: center;
+    background-size: cover;
+}
+input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img{
+    height: 300px;
+    transition: height .5s;
+}
