@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.meme:hover {
+    cursor: pointer;
+}
+
+.container {
+    margin: 0 auto;
+    font-family: 'Noto Sans', sans-serif;
+    padding: 1rem;
+    min-width: 20rem;
+}
+
+.meme-heading {
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    border-top: clamp(.1rem, .2vw, .15rem) solid #dedede;
+}
+
+.heading-text {
+    display: inline-block;
+}
+
+.meme-img {
+    display: block;
+    width: 0;
+    height: auto;
+    margin: 0 auto;
+    transition: all .5s;
+}
+
+.heading-icon {
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-image: url("./assets/add-icon.svg");
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    opacity: 1;
+    transition: all .5s;
+    transform: rotate(0deg);
+}
+
+input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img {
+    width: 80%;
+    transition: all .5s;
+    margin-bottom: 20px;
+}
+
+input[type="radio"]:checked ~ .meme-heading > .heading-icon {
+    transform: rotate(45deg);
+    transition: all .5s;
+}
+
+
+@media (min-width: 1280px) {
+
+    .container {
+        max-width: 60rem;
+        padding: 0;
+    }
+
+    .meme-img {
+        max-width: 25rem;
+    }
+
+    .meme-heading {
+        color: #1ba8f0;
+        transition: color .3s;
+    }
+
+    .container:hover .meme-heading, input[type="radio"]:checked ~ .meme-heading {
+        color: black;
+        transition: color .3s;
+    }
+
+    input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img {
+        width: 80%;
+    }
+
+    .heading-icon {
+        opacity: 0;
+    }
+
+    .container:hover .heading-icon {
+        opacity: 1;
+        transition: all .5s;
+    }
+
+    label:hover > .meme-heading > .heading-icon {
+        transform: rotate(45deg);
+        transition: all .5s;
+    }
+}
+
+@media (min-width: 820px) {
+    input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img {
+        width: 40%;
+    }
+
+}
