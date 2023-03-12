@@ -3,7 +3,7 @@
 }
 
 h2 {
-    font-size: clamp(1.2rem, 2vw, 2rem);
+    font-size: clamp(1.2rem, 4vw, 2rem);
 }
 
 input[type="radio"] {
@@ -26,7 +26,7 @@ input[type="radio"] {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: clamp(1rem, 2vw, 1.8rem);
+    font-size: clamp(1rem, 3vw, 1.8rem);
     border-top: clamp(.1rem, .2vw, .15rem) solid #dedede;
 }
 
@@ -45,12 +45,13 @@ input[type="radio"] {
 .heading-icon {
     height: 80%;
     aspect-ratio: 1/1;
-    /*background-image: url("./assets/add-icon.svg");*/
+    background-image: url("./assets/add-icon.svg");
     background-position: center;
     background-size: cover;
     display: inline-block;
-    opacity: 0;
+    opacity: 1;
     transition: all .5s;
+    transform: rotate(0deg);
 }
 
 input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img {
@@ -59,22 +60,14 @@ input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img {
     margin-bottom: 20px;
 }
 
-input[type="radio"]:checked ~ .meme-heading > .heading-icon, label:hover > .meme-heading > .heading-icon {
-    background-image: url("./assets/close-icon.svg");
-    opacity: 1;
+input[type="radio"]:checked ~ .meme-heading > .heading-icon {
+    transform: rotate(45deg);
     transition: all .5s;
 }
 
 
 @media (min-width: 1280px) {
 
-    .container:hover .heading-icon {
-        display: inline-block;
-    }
-
-    /*.heading-icon {*/
-    /*    display: none;*/
-    /*}*/
     .container {
         max-width: 60rem;
         padding: 0;
@@ -96,6 +89,20 @@ input[type="radio"]:checked ~ .meme-heading > .heading-icon, label:hover > .meme
 
     input[type="radio"]:checked ~ .meme-img, label:hover > .meme-img {
         width: 80%;
+    }
+
+    .heading-icon {
+        opacity: 0;
+    }
+
+    .container:hover .heading-icon {
+        opacity: 1;
+        transition: all .5s;
+    }
+
+    label:hover > .meme-heading > .heading-icon {
+        transform: rotate(45deg);
+        transition: all .5s;
     }
 }
 
